@@ -186,9 +186,9 @@ int main()
     //     cout << arr[j] << " ";
     // }
 
-    // to get total size of array
-    // int arr[5];
-    // cout << sizeof(arr);
+     //to get total size of array
+     int arr[5];
+     cout << sizeof(arr)/sizeof(arr[0]);
 
     // to get size of array: (BUT THIS IS WRONG PRACTICE , we here get number of blocks in arr2 not total size of array)
     // int arr2[10] = {0};

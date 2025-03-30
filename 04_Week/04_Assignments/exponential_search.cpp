@@ -1,3 +1,4 @@
+//exponontial search is the finding a target in a large array 
 #include <iostream>
 using namespace std;
 

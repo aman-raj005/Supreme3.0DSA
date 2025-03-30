@@ -54,14 +54,14 @@ int main()
     //     int value = it->second;
     //     cout << "Key : " << key << " Value : " << value << endl;
     // }
-    // OR
+    // OR                                     //ye wala dekho bash
     // for (auto it : desk_map)
     // {
     //     int key = it.first;
     //     int value = it.second;
     //     cout << "Key : " << key << " Value : " << value << endl;
     // }
-
+ 
     // access/find
     // if (desk_map.find(2) != desk_map.end())
     // {
@@ -78,8 +78,9 @@ int main()
     //     int key = it->first;
     //     int value = it->second;
     //     cout << "Key : " << key << " Value : " << value << endl;
+    
     // }
-
+          // ye wala compliment difficult hai ham simple whilw wala kaare gee     https://www.geeksforgeeks.org/problems/2s-complement3124/1
     // 2's Compliment
     // vector<int> binary = {0, 1, 0, 1, 1, 1, 0, 1};
     // vector<int> ans = findComplement(binary);
@@ -129,6 +130,22 @@ int main()
     // }
 
     // sorting and swapping
+    
+    
+    
+    
+   // You are given an array v of size n, where numbers are in the range 1 to n, but some numbers are missing. Your task is to find and print the missing numbers.
+
+//Example to Understand the Code
+//Let's take an example:
+
+// n = 5
+// v = {3, 1, 2, 5, 5}
+    
+    
+    
+   // https://www.geeksforgeeks.org/problems/find-missing-and-repeating2512/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card  
+    
     int i = 0;
     while (i < n)
     {

@@ -212,7 +212,7 @@ void transposeIn2DArray2(int arr[][3], int r, int c)
 {
     for (int i = 0; i < r; i++)
     {
-        for (int j = i; j < c; j++)
+        for (int j = i; j < c; j++)           // j=1 is also correct
         {
             // int temp[][3] = arr[i][j];
             swap(arr[i][j], arr[j][i]);
@@ -247,37 +247,37 @@ int main()
     // printing
     // int row = 3;
     // int column = 2;
-    // print2DArray(arr1, row, column);
+//     print2DArray(arr1, row, column);
 
     // create limited value 2D array
     // int arr2[3][3] = {10, 20, 30};
     // int arr2[3][3];
 
-    // printing 2Darray
-    // int arr2[3][3] = {
-    //     {10, 20, 30},
-    //     {40, 50, 60},
-    //     {70, 80, 90}};
-    // int row = 3;
-    // int column = 3;
-    // cout << "Rowwise : " << endl;
-    // print2DArrayRow(arr2, row, column);
-    // cout << endl
-    //      << "Columnwise : " << endl;
-    // print2DArrayColumn(arr2, row, column);
-    // cout << endl
-    //      << "Diagonally 1: " << endl;
-    // print2DArrayDiagonally1(arr2, row, column);
-    // cout << endl
-    //      << "Diagonally 2: " << endl;
-    // print2DArrayDiagonally2(arr2, row, column);
+//    // printing 2Darray
+//     int arr2[3][3] = {
+//         {10, 20, 30},
+//         {40, 50, 60},
+//         {70, 80, 90}};
+//     int row = 3;
+//     int column = 3;
+//     cout << "Rowwise : " << endl;
+//          print2DArrayRow(arr2, row, column);    
+//     cout << endl;
+//          cout<< "Columnwise : " << endl;
+//     print2DArrayColumn(arr2, row, column);
+//     cout << endl;
+//          << "Diagonally 1: " << endl;
+//     print2DArrayDiagonally1(arr2, row, column);
+//     cout << endl
+//          << "Diagonally 2: " << endl;
+//     print2DArrayDiagonally2(arr2, row, column);
 
     // Taking Input in 2D Array:
     // int arr[3][2];
     // int r = 3;
     // int c = 2;
 
-    // rowwiseInputIn2DArray(arr, r, c);
+//     rowwiseInputIn2DArray(arr, r, c);
     // // columnwiseInputIn2DArray(arr, r, c);
 
     // cout << "Final Array(rowwise) : " << endl;
@@ -356,11 +356,15 @@ int main()
     // diagonalSumIn2DArray2(arr2, rs, cs);
     // cout << endl;
 
-    // Transpose of 2D Array:
+    // Transpose of 2D Array:        Transpose means convert row into col
+   //  like       10 40 90
+  //              20 50 80
+  //              50 60 90
     int arr2[3][3] = {
         {10, 20, 50},
         {40, 50, 60},
         {90, 80, 90}};
+        
     int rs = 3;
     int cs = 3;
     transposeIn2DArray2(arr2, rs, cs);

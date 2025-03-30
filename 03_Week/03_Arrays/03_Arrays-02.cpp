@@ -115,7 +115,7 @@ pair<int, int> checkTwoSums(int arr[], int size, int target)
     }
     return ans;
 }
-
+// try love babbar war i+k...
 void rotateArray(int arr[], int size, int shift)
 {
     shift = shift % size;
@@ -194,7 +194,7 @@ int main()
         cout << arr[i] << " ";
     }
 
-    // int ans = findUniqueNumber(arr, size);
+//     int ans = findUniqueNumber(arr, size);
     // int ans = alternateSolnFindUnique(arr, size);
     // cout << "Unique No. : " << ans << endl;
 

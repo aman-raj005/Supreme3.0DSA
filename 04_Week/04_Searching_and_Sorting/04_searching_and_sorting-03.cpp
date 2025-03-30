@@ -59,6 +59,9 @@ using namespace std;
 //     return -1;
 // }
 
+   // q3
+  //  The function findOddOccuringElement(int arr[], int size) finds the index of the element that appears only once in a sorted array 
+  //where all other elements appear exactly twice.
 int findOddOccuringElement(int arr[], int size)
 {
     int s = 0;
@@ -85,6 +88,15 @@ int findOddOccuringElement(int arr[], int size)
         {
             return mid;
         }
+        
+//        Understanding the Logic:
+//The core idea behind checking whether mid - 1 is odd or even is based on how pairs are structured in the sorted array.
+//
+//In a correctly formatted array where every element appears twice (except one), pairs follow a pattern:
+//
+//If the first occurrence of a pair is at an even index, the second occurrence is at the next odd index.
+//
+//If there is a disruption in this pattern, the unique element must be before or after mid.
         if (mid - 1 >= 0 && currentValue == leftValue)
         {
             int pairstartingIndex = mid - 1;
@@ -135,6 +147,10 @@ int main()
     // cout << "Found at : " << ans << endl;
 
     // q3
+  //  The function findOddOccuringElement(int arr[], int size) finds the index of the element that appears only once in a sorted array 
+  //where all other elements appear exactly twice.
+
+
     int arr[] = {1, 2, 2, 3, 3};
     int size = 5;
 

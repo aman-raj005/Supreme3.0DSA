@@ -1,3 +1,24 @@
+//Question (Short and Clear)
+//?? Problem: The given C++ program prints a 2D matrix in a wave pattern (column-wise). However, there is a mistake in handling vector function parameters.
+//
+//?? Example:
+//Input Matrix:
+//
+//Copy
+//Edit
+//1  2  3  
+//4  5  6  
+//7  8  9  
+//Expected Output (Wave Pattern):
+//
+//Copy
+//Edit
+//1 4 7 8 5 2 3 6 9  
+
+
+
+
+
 #include <iostream>
 #include <vector>
 using namespace std;

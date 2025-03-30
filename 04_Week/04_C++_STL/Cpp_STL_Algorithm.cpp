@@ -1,9 +1,9 @@
 // Iterators:
 
-// #include <iostream>
-// #include <algorithm>
-// #include <vector>
-// using namespace std;
+ #include <iostream>
+ #include <algorithm>
+ #include <vector>
+ using namespace std;
 
 // void printDouble(int a)
 // {
@@ -15,8 +15,8 @@
 //     return a % 2 == 0;
 // }
 
-// int main()
-// {
+ int main()
+ {
 //     vector<int> arr(5);
 //     arr[0] = 10;
 //     arr[1] = 20;
@@ -33,6 +33,13 @@
 //     // find
 //     int target = 30;
 //     auto it = find(arr.begin(), arr.end(), target);
+  //  // Correct way to print the index
+//    if (it != arr.end()) {
+//        cout << "Element found at index: " << (it - arr.begin()) << endl;
+//    } else {
+//        cout << "Element not found" << endl;
+//    }
+
 //     cout << "Element " << *it << " found!" << endl
 //          << endl;
 
@@ -40,7 +47,14 @@
 //     auto it1 = find_if(arr.begin(), arr.end(), checkEven);
 //     cout << "First element in container which follow the given function is " << *it1 << endl
 //          << endl;
-
+ // Check if any even number was found
+//    if (it1 != arr.end()) {
+//        cout << "First even number in the container is: " << *it1 << endl;
+//    } else {
+//        cout << "No even number found in the container" << endl;
+//    }
+    
+    
 //     // count
 //     int target1 = 40;
 //     int cnt = count(arr.begin(), arr.end(), target1);
@@ -77,7 +91,7 @@
 //     cout << endl
 //          << endl;
 
-//     // rotate
+     // rotate
 //     cout << "Before Rotate: ";
 //     for (auto it : arr)
 //     {
@@ -103,7 +117,29 @@
 //     arr2[4] = 3;
 
 //     auto it2 = unique(arr2.begin(), arr2.end());
-//     // before "it" iterator all elements are unique after it all are duplicate
+      //   // std::unique(arr2.begin(), arr2.end()) works as follows:
+      //   //    It compares adjacent elements.
+     //    //    if  two consecutive elements are the same, the duplicate is shifted to the right.
+    //     //    The function returns an iterator to the new logical end.
+    //     //    Modified Array (Before Resizing):
+    //     //auto it = std::unique(arr2.begin(), arr2.end());
+
+  //  // Getting the new size (index of new logical end)
+   //  // int new_size = it - arr2.begin();
+
+    //    //  ini
+     //  //  Copy code
+     //   //  arr2 = {1, 2, 3, ?, ?}
+     //  //  (? means undefined values since std::unique does not erase elements, it only shifts.)
+
+       //  Return Value:
+
+      //  //it2 will point to the new logical end (i.e., after the last unique element).
+     //  //it2 - arr2.begin() gives the new size of unique elements (3 in this case).
+     //     // before "it" iterator all elements are unique after it all are duplicate
+
+
+
 //     arr2.erase(it2, arr2.end());
 //     cout
 //         << "All unique elements are : ";
@@ -123,6 +159,8 @@
 //     }
 //     cout << endl
 //          << endl;
+         //  //  Iterator-based	for (auto it = arr2.begin(); it != it3; ++it) cout << *it;
+         //  //  Index-based	for (int i = 0; i < new_size; i++) cout << arr2[i];
 
 //     return 0;
 // }
@@ -163,7 +201,7 @@
 //     cout << "Inner Product b/w 'first' and 'second' container is " << ans << endl
 //          << endl;
 
-//     // partial_sum
+     // partial_sum
 //     vector<int> res(first.size());
 //     partial_sum(first.begin(), first.end(), res.begin());
 //     cout << "Partial Sum of 'first' is : ";
@@ -397,5 +435,5 @@
 //     cout << endl
 //          << endl;
 
-//     return 0;
-// }
+     return 0;
+ }
