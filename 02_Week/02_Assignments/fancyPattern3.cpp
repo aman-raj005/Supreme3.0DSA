@@ -1,3 +1,150 @@
+// first of all try to  print this 
+// *
+// ***
+// *****
+// *******
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     //print first half
+//     int n=4;  // number of frist half row
+//     for(int i=0;i<n;i++)
+//      {
+//       for(int j=0;j<2*i+1;j++)  // printing prime number of times
+//        {
+//          cout<<"*";
+//        }
+//        cout<<endl;   // moving to next line
+//      }
+//     return 0;
+// }
+
+// try this after previous for 
+
+  //*
+  //*1*
+  //*121*
+  //*12321*
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     //print first half
+//     int n=4;  // number of frist half row
+//     for(int i=0;i<n;i++)
+//      {
+//       for(int j=0;j<2*i+1;j++)  // printing prime number of times
+//        {
+//         if(j==0){ // for first col it is always star
+//             cout<<"*";
+//         }
+//         else if(2*i==j){cout<<"*";} //for last element of every row print star
+//         else{
+//             int printingnum = j <= i ? j : 2*i - j;  // for half reverse printing 
+//             cout<<printingnum;
+//         }
+     
+//        }
+//        cout<<endl;   // moving to next line
+//      }
+//     return 0;
+// }
+
+
+// now for half part
+     //*121*
+     //*1*
+     //*
+
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n=4;  // number of first half rows in full pattern
+
+//     // print second half (reverse only)
+//     for(int i=n-2; i>=0; i--)  // start from n-2 to avoid repeating middle row
+//     {
+//         for(int j=0; j<2*i+1; j++)  // printing prime number of times
+//         {
+//             if(j==0){ // for first col it is always star
+//                 cout<<"*";
+//             }
+//             else if(2*i==j){cout<<"*";} // for last element of every row print star
+//             else{
+//                 int printingnum = j <= i ? j : 2*i - j;
+//                 cout<<printingnum;
+//             }
+//         }
+//         cout<<endl;   // moving to next line
+//     }
+
+//     return 0;
+// }
+
+
+  // now combine both for 
+         //  *
+         //  *1*
+         //  *121*
+         // *12321*
+         //  *1234321*
+         //  *123454321*
+         //  *12345654321*
+         //  *1234567654321*
+         //  *12345654321*
+         //  *123454321*
+         //  *1234321*
+         //  *12321*
+         //  *121*
+         //  *1*
+         //  *
+   
+
+  #include<iostream>
+using namespace std;
+int main(){
+    int n=8;  // number of first half rows in full pattern
+        //print first half
+    for(int i=0;i<n;i++)
+     {
+      for(int j=0;j<2*i+1;j++)  // printing prime number of times
+       {
+        if(j==0){ // for first col it is always star
+            cout<<"*";
+        }
+        else if(2*i==j){cout<<"*";} //for last element of every row print star
+        else{
+            int printingnum = j <= i ? j : 2*i - j;  // for half reverse printing 
+            cout<<printingnum;
+        }
+     
+       }
+       cout<<endl;   // moving to next line
+    }
+    for(int i=n-2; i>=0; i--)  // start from n-2 to avoid repeating middle row
+    {
+        for(int j=0; j<2*i+1; j++)  // printing prime number of times
+        {
+            if(j==0){ // for first col it is always star
+                cout<<"*";
+            }
+            else if(2*i==j){cout<<"*";} // for last element of every row print star
+            else{
+                int printingnum = j <= i ? j : 2*i - j;
+                cout<<printingnum;
+            }
+        }
+        cout<<endl;   // moving to next line
+    }
+
+    return 0;
+}
+
+
+
+
 #include<iostream>
 using namespace std;
 /*

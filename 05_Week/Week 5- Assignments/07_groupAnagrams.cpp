@@ -18,7 +18,8 @@ public:
     }
 };
 
-// method-2: hash
+// method-2: hash  
+   // if not usderstood it's ok to learn only one method ......
 class Solution {
 public:
     std::array<int, 256> hash(string s){
