@@ -17,7 +17,24 @@
 // Input: nums = [1,2,3,5]
 // Output: false
 // Explanation: The array cannot be partitioned into equal sum subsets.
- 
+                                             // my code 
+ class Solution {
+public:
+    bool check(vector<int>nums,int target,int index){
+       if(target<0 || index==nums.size()){return false;}
+       if(target==0){return true;}
+       bool include=check(nums,target-nums[index],index+1);
+       bool exclude=check(nums,target,index+1);
+       return include||exclude;
+    }
+    bool canPartition(vector<int>& nums) {
+      int target=accumulate(nums.begin(),nums.end(),0);
+      if(target%2 !=0){return false;}
+      target=target>>1;
+      return check(nums,target,0);
+    }
+};
+                 //code by lakchya is better 
 
  class Solution {
 public:

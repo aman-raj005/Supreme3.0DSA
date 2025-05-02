@@ -23,6 +23,29 @@
 
 // Input: triangle = [[-10]]
 // Output: -10
+                          // my code 
+                          class Solution {
+public:
+    int check(vector<vector<int>>& triangle, int row, int col, int numberofrow) {
+        // base case
+        if (row == numberofrow) {
+            return 0;
+        }
+        int down = check(triangle, row + 1, col, numberofrow);       // move down
+        int diagonal = check(triangle, row + 1, col + 1, numberofrow); // move diagonal
+        return min(down, diagonal) + triangle[row][col];
+    }
+
+    int minimumTotal(vector<vector<int>>& triangle) {
+        int numberofrow = triangle.size();
+        return check(triangle, 0, 0, numberofrow);
+    }
+};
+
+
+
+
+
 
 class Solution {
     public:

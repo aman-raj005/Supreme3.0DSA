@@ -1,3 +1,25 @@
+  //                                  my code 
+  // If the base is 5 and the exponent is 4, the program should return 625 (since 5^4 = 625).
+#include<iostream>
+using namespace std;
+int print(int n) {
+    // base case
+    if(n==0 ){
+        return 1;
+    }
+    // aik mai karuga baki recursion dekh lega
+    int exponetial =print(n-1)*5;
+    return exponetial;
+}
+
+int main() {
+    int n = 4;
+    cout<<print( n) ;
+    return 0;
+}
+
+ //                                                                     code by love babbar
+ 
 // Question:
 
 // Write a C++ program to calculate the power of a given base raised to a given exponent using a recursive function.

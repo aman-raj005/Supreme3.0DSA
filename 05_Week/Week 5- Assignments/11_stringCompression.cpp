@@ -69,6 +69,7 @@ public:
              }
 
         }
+      //  handle last case
         if(start<index){
               ans.push_back(chars[start]);
               int count=index-start;

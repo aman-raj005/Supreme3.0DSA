@@ -1,4 +1,3 @@
-// find the last occurance of char in string 
 
 
 
@@ -26,33 +25,6 @@ if(position==-1){cout<<"not found"<<endl;}
 else{cout<<"found at : "<<position<<endl;}
     return 0; 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

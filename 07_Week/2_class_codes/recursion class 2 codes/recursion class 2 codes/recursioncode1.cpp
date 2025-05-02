@@ -1,3 +1,30 @@
+//       my code to print even upto n
+//                                                                 printAllEvens upto 50
+#include<iostream>
+using namespace std;
+int printeven(int n,int count) {
+    // base case
+    if(count>n){
+        return 0;
+    }
+    // aik mai karuga baki recursion dekh lega
+    if(count%2==0){
+        cout<<count<<" ";
+    }
+    printeven( n,count+1) ;
+ 
+}
+
+int main() {
+    int n = 50;
+    int count=1;
+    printeven( n,count) ;
+    return 0;
+}
+
+
+//                                                                 code by lovebabbar
+
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -26,6 +53,35 @@ void printAllEvens(int arr[],int n, int index) {
     printAllEvens(arr,n,index+1);
 }
 
+
+           // print all odd
+                                                   // my code 
+                                                   
+               //              printAllEvens upto 50
+#include<iostream>
+using namespace std;
+int printeven(int n,int count) {
+    // base case
+    if(count>n){
+        return 0;
+    }
+    // aik mai karuga baki recursion dekh lega
+    if(count%2 !=0){
+        cout<<count<<" ";
+    }
+    printeven( n,count+1) ;
+ 
+}
+
+int main() {
+    int n = 50;
+    int count=1;
+    printeven( n,count) ;
+    return 0;
+}                                    
+                                                   
+                                                   
+                                // code by lobebabbar 
 void printAllOdds(int arr[], int n, int index, vector<int> &ans) {
     //base case
     if(index == n) {
@@ -40,7 +96,37 @@ void printAllOdds(int arr[], int n, int index, vector<int> &ans) {
     printAllOdds(arr,n,index+1,ans);
 }
 
+                                  //                      minInArray
+                                 //                       my code 
+		//              minimum in array
+#include<iostream>
+using namespace std;
+#include <algorithm>
+#include <cmath>
+ int minINarray(int arr[],int size,int count,int minn)
+   {
+     //base case
+     if(count>=size){
+        return minn;
+     }
+     // aik mai karuga baki sab recursion dekh lega
+        minn=min(minn,arr[count]);
+         return minINarray(arr,size,count+1,minn);
+        
+   }
 
+int main() {
+    int arr[] = {100,20,30, 40, 50, 60};
+    int size=6;
+    int count=0;
+    int minn=INT16_MAX;
+    cout<<minINarray(arr,size,count,minn);
+    return 0;
+} 
+                                  
+                                  
+                                  //                   code by love babbar
+                                    
 void minInArray(int arr[], int size,int index, int &mini) {
     //base case
     if(index == size) {
@@ -52,6 +138,37 @@ void minInArray(int arr[], int size,int index, int &mini) {
     minInArray(arr,size,index+1, mini);
 }
 
+                             // maxx in array
+                             //my  code
+                             
+          //              maximum in array
+#include<iostream>
+using namespace std;
+#include <algorithm>
+#include <cmath>
+ int maxINarray(int arr[],int size,int count,int maxx)
+   {
+     //base case
+     if(count>=size){
+        return maxx;
+     }
+     // aik mai karuga baki sab recursion dekh lega
+     maxx=max(maxx,arr[count]);
+         return maxINarray(arr,size,count+1,maxx);
+        
+   }
+
+int main() {
+    int arr[] = {10,20,90, 40, 50, 60};
+    int size=6;
+    int count=0;
+    int maxx=INT16_MIN;
+    cout<<maxINarray(arr,size,count,maxx);
+    return 0;
+}                   
+                             
+                             
+                             // code by love babbar
 
 void maxInArray(int arr[], int size,int index, int &maxi) {
     //base case
@@ -67,7 +184,33 @@ void maxInArray(int arr[], int size,int index, int &maxi) {
     maxInArray(arr,size, index+1, maxi);
     
 }
+                                                       // search in an array
+                                                       // my code
+               //              search in array
+#include<iostream>
+using namespace std;
+#include <algorithm>
+#include <cmath>
+ int maxINarray(int arr[],int size,int count,int target)
+   {
+    //base case
+    if(arr[count]==target ||count>=size)
+      {
+        return count;
+      }
+      return maxINarray( arr, size, count +1, target);
+   }
 
+int main() {
+    int arr[] = {10,20,90, 40, 50, 60};
+    int size=6;
+    int count=0;
+    int target=60;
+    cout<<maxINarray(arr,size,count,target);
+    return 0;
+}                                        
+                                                       
+                                                       // code by lovebabbar
 
 bool searchInArray(int arr[], int size,int index, int target) {
     //base case
@@ -86,7 +229,33 @@ bool searchInArray(int arr[], int size,int index, int target) {
     return ans;
 }
 
+                                         // print array 
+                                         //code by me
+                                         
+     //              print whole array
+#include<iostream>
+using namespace std;
+#include <algorithm>
+#include <cmath>
+ void print(int arr[],int size,int count)
+   {
+    //base case
+    if(count>=size){return ;}
+    
+    //aik mai karuga baki recursion dekh lega
+    cout<<arr[count]<<" ";
+    print(arr,size,count+1);
+   }
 
+int main() {
+    int arr[] = {10,20,90, 40, 50, 60};
+    int size=6;
+    int count=0;
+    print(arr,size,count);
+    return 0;
+}                                    
+                                         
+                                         // code by lovebabbar
 
 void printArray(int arr[], int size, int index) {
     //base case

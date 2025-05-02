@@ -46,8 +46,29 @@
 //1 <= s.length <= 5 * 104
 //t.length == s.length
 //s and t consist of any valid ascii character.
-
-
+  // my code 
+  class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+       char  hatch[256]={0};
+       bool mapped_char[256]={false};
+       for(int i=0;i<s.length();i++){
+        if(hatch[s[i]]==0 && mapped_char[t[i]]==false)
+          {
+           hatch[s[i]]=t[i];
+           mapped_char[t[i]]=true;
+          }
+       }
+        for(int i=0;i<t.length();i++){
+        if( hatch[s[i]] !=t[i])
+          {
+           return false;
+          }
+       }
+       return true;
+    }
+};
+                     // code by lakchya
 //leetcode 205: Isomorphic Strings
 class Solution {
 public:

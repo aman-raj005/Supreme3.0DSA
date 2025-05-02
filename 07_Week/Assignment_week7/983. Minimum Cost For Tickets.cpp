@@ -16,7 +16,6 @@
 // Return the minimum number of dollars you need to travel every day in the given list of days.
 
  
-
 // Example 1:
 
 // Input: days = [1,4,6,7,8,20], costs = [2,7,15]
@@ -56,19 +55,17 @@ class Solution {
           
           // 7-day pass
           int pastday = days[index] + 7 - 1;
-          int j = index;
-          while (j < days.size() && days[j] <= pastday) {  
-              j++;
+          while (index < days.size() && days[index] <= pastday) {  
+              index++;
           }
-          int weekday = costs[1] + minDollar(days, costs, j);
+          int weekday = costs[1] + minDollar(days, costs, index);
           
           // 30-day pass
           pastday = days[index] + 30 - 1;
-          j = index;
-          while (j < days.size() && days[j] <= pastday) {  
-              j++;
+          while (index < days.size() && days[index] <= pastday) {  
+              index++;
           }
-          int monthday = costs[2] + minDollar(days, costs, j);
+          int monthday = costs[2] + minDollar(days, costs, index);
           
           // Return minimum of all three choices
           return min(monthday, min(weekday, dayonewisecost));

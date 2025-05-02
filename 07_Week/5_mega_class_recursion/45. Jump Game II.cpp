@@ -22,8 +22,45 @@
 
 // Input: nums = [2,3,0,1,4]
 // Output: 2
-
-
+                     // my code 
+                     class Solution {
+public:
+   void check(vector<int>nums,int index,int &minn,int step){
+      //base case
+      if(index >=nums.size()-1){  minn=min(minn,step);       return;}
+      if(nums[index]==0){return;}
+      for(int jump=1;jump<=nums[index];jump++){
+        check(nums,index+jump,minn,step+1);
+      }
+      return;
+    }
+    int jump(vector<int>& nums) {
+    int minn=INT_MAX ;
+    check(nums,0,minn,0);
+    return minn;
+    }
+};
+  //   my code 
+  class Solution {
+    int solve(vector<int>& nums, int index, int count, int minn) {
+        // base case
+        if (index >= nums.size() - 1) {
+            return count;
+        }
+        
+        for (int i = 1; i <= nums[index]; i++) {
+            // try jump of size i
+            minn = min(minn, solve(nums, index + i, count + 1, minn));
+        }
+        
+        return minn;
+    }
+public:
+    int jump(vector<int>& nums) {
+        return solve(nums, 0, 0, INT_MAX);
+    }
+};
+                // code by lakchya
 
 class Solution {
     public:

@@ -2,10 +2,13 @@
 #include<vector>
 using namespace std;
 void solve(int* ar, int size){
-    cout<<sizeof(ar)<<endl;
+    cout<<sizeof(ar)<<endl;      //sizeof(ar);  // ?? gives size of pointer, not the whole array
+                                 //   8  // (size of pointer on 64-bit machine)
+
 }
-void solvev(vector<int>v){
-    cout<<sizeof(v)<<endl;
+void solvev(vector<int>v){ 
+    cout<<sizeof(v)<<endl;       //  24
+
 }
 int main(){
     int ar[]={10,20,30,40,50};

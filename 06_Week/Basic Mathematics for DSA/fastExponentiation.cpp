@@ -8,7 +8,7 @@ int slowExponentiation(int a, int b){
     return ans;
 }
 
-// better solution:O(logB)
+// better solution:O(logB)                     // see this only
 int fastExponentiation(int a, int b){
     int ans = 1;
     while(b>0){
