@@ -8,8 +8,6 @@
 
 // Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
 
- 
-
 // Example 1:
 
 // Input: nums = [2,3,2]
@@ -31,6 +29,30 @@
 
 // 1 <= nums.length <= 100
 // 0 <= nums[i] <= 1000
+                        //  my code 
+class Solution {
+    int robFrom(vector<int>& nums, int start, int end) {
+        if (start > end) return 0;
+
+        int pick = nums[start] + robFrom(nums, start + 2, end);
+        int skip = robFrom(nums, start + 1, end);
+
+        return max(pick, skip);
+    }
+
+public:
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+        if (n == 1) return nums[0];
+
+        int case1 = robFrom(nums, 0, n - 2);  // exclude last house
+        int case2 = robFrom(nums, 1, n - 1);  // exclude first house
+
+        return max(case1, case2);
+    }
+};
+
+                                     // code by lakchya
 
 class Solution {
     int  robbedamount(vector<int>& nums,int index,int size){
@@ -62,7 +84,7 @@ public:
         if(size==1){return nums[0];}
 
         if(size%2==0){
-                  int first= robbedamount(nums,1,nums.size());                        
+                      int first=  robbedamount(nums,1,nums.size());                        
                       int second= robbedamount(nums,0,nums.size()-1);
                       return max(first,second);
                      }

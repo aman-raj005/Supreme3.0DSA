@@ -36,12 +36,48 @@
 
 // 0 <= word1.length, word2.length <= 500
 // word1 and word2 consist of lowercase English letters.
+                            // code by mee
+            #include <iostream>
+#include <string>
+using namespace std;
+
+class Solution {
+private:
+ int noperation(string &word1, int i, string &word2, int j) {
+    if (i >= word1.length()) return word2.length() - j;
+    if (j >= word2.length()) return word1.length() - i;
+
+    if (word1[i] == word2[j]) {
+        return noperation(word1, i + 1, word2, j + 1); 
+    } else {
+        int inserted = 1 + noperation(word1, i, word2, j + 1);    // Insert
+        int removed  = 1 + noperation(word1, i + 1, word2, j);    // Remove
+        int replaced = 1 + noperation(word1, i + 1, word2, j + 1); // Replace
+
+        return min(inserted, min(removed, replaced));
+    }
+}
+
+
+public:
+    // Function to calculate the minimum edit distance
+    int minDistance(string word1, string word2) {
+        return noperation(word1, 0, word2, 0);
+    }
+};
+
+// Test case
+int main() {
+    Solution sol;
+    string word1 = "horse", word2 = "ros";
+    cout << "Minimum Edit Distance: " << sol.minDistance(word1, word2) << endl;
+    return 0;
+}
 
 
 
 
-
-
+                         // code by love babbar 
 #include <iostream>
 #include <string>
 using namespace std;

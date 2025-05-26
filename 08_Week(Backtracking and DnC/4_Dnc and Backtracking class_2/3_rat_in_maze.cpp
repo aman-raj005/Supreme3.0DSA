@@ -32,6 +32,48 @@
 
 
 
+// User function template for C++
+
+class Solution {
+  public:
+  void check(vector<vector<int>>&maze,vector<vector<bool>>&stored,vector<string>&ans,int row,int col,string output)
+  {
+    //base case
+    if(row==maze.size()-1 &&col==maze.size()-1){ ans.push_back(output) ;return;}
+    //agar maze 0 ho jaye to 
+    if(row<0 ||col<0 ||row>=maze.size()||col>=maze[0].size()||stored[row][col]==true||maze[row][col]==0 ){return;}
+  
+  
+    //aik ...
+    stored[row][col]=true;
+    check(maze,stored,ans, row+1, col,output+'D');
+    check(maze,stored,ans, row-1, col,output+'U');
+    check(maze,stored,ans, row, col+1,output+'R');
+    check(maze,stored,ans, row, col-1,output+'L');
+    stored[row][col]=false;
+    
+  }
+    vector<string> ratInMaze(vector<vector<int>>& maze) {
+        // code here
+        string output="";
+        vector<string>ans;
+        vector<vector<bool>>stored(maze.size(),vector<bool>(maze[0].size(),false));
+        if(maze[0][0]==false){return ans;}
+        check(maze,stored,ans,0,0,output);
+        sort(ans.begin(),ans.end());
+        return ans;
+    }
+};
+
+
+
+
+
+
+
+
+
+
 
 
 bool isPOSSIBLE(vector<vector<int>> &mat, int noOFrows, int noofcolumns, vector<vector<int>>&visited, int row, int col) {

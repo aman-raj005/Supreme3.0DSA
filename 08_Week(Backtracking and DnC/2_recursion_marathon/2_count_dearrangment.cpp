@@ -1,3 +1,47 @@
+
+//### **Question:**
+//
+//> You are given an integer `n`, representing the number of distinct elements.
+//> A **derangement** is a permutation where **no element appears in its original position**.
+//> Write a program to calculate the **total number of derangements** possible for `n` elements.
+//>
+//> ### **Constraints**:
+//>
+//> * 1 = n = 20
+//>
+//> ### **Input**:
+//>
+//> * An integer `n` (number of elements)
+//>
+//> ### **Output**:
+//>
+//> * An integer representing the total number of valid derangements
+//>
+//> ---
+//>
+//> ### **Example:**
+//>
+//> **Input:**
+//> `n = 4`
+//>
+//> **Output:**
+//> `9`
+//>
+//> **Explanation:**
+//> The 9 derangements of 4 elements (1, 2, 3, 4) are:
+//>
+//> ```
+//> (2, 1, 4, 3)
+//> (2, 3, 4, 1)
+//> (2, 4, 1, 3)
+//> (3, 1, 4, 2)
+//> (3, 4, 1, 2)
+//> (3, 4, 2, 1)
+//> (4, 1, 2, 3)
+//> (4, 3, 1, 2)
+//> (4, 3, 2, 1)
+
+
 #include <iostream>
 using namespace std;
 

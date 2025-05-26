@@ -1,3 +1,50 @@
+//?? Problem Statement (from LeetCode #276 – simplified):
+//You are painting a fence with n posts using k colors.
+//You must ensure that no more than two adjacent fence posts have the same color.
+//
+//Return the total number of ways to paint the fence.
+//
+//?? What your code solves:
+//Your version is slightly stricter — it ensures that no two adjacent poles are the same, not just no three adjacent poles (which is the actual LeetCode version). So your version matches a stricter variant.
+//
+//?? Modified Custom Question Based on Your Code
+//Here’s a custom version of the question that exactly fits your code:
+//
+//? Custom Problem: Paint Poles with No Adjacent Same Color
+//You are given poles vertical poles and colors paint colors.
+//You must paint all the poles such that no two adjacent poles have the same color.
+//
+//Return the total number of ways to paint the poles following this rule.
+//
+//Input:
+//poles: integer (1 = poles = 30)
+//
+//colors: integer (1 = colors = 10)
+//
+//Output:
+//Return a single integer — the total number of valid colorings.
+//
+//Example:
+//cpp
+//Copy
+//Edit
+//Input: poles = 3, colors = 3
+//Output: 24
+//Explanation:
+//First pole: 3 choices
+//
+//Second: must be different ? 2 choices ? total 3×2 = 6
+//
+//Third: must be different from second ? 2 choices again for each ? 6×2 = 12
+//
+//But since your code uses:
+//f(n) = (colors - 1) × (f(n-1) + f(n-2)),
+//for poles = 3 and colors = 3:
+//f(3) = (3-1) × (f(2) + f(1)) = 2 × (9 + 3) = 24
+//
+
+
+
 #include <iostream>
 using namespace std;
 
@@ -32,7 +79,8 @@ int count(int poles, int colors) {
     return anss;
 }
 
-int main() {
+int main()
+ {
     int poles = 3;  // Number of poles to be painted
     int colors = 3; // Number of available colors (e.g., RGB)
     
