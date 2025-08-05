@@ -1,29 +1,38 @@
-// GFG: Count the Reversals
+// GFG: Count the Reversals              https://www.geeksforgeeks.org/problems/count-the-reversals0401/1
 
-int countRev (string s){
-    // if odd sized string->not possible to make pairs
-    if(s.size() & 1) return -1;
-    int ans = 0;
-    stack<char>st;
-    for(char ch:s){
-        if(ch=='{'){
-            st.push(ch);
-        }
-        else{
-            if(!st.empty() && st.top()=='{') st.pop();
-            else st.push(ch);
-        }
-    }
-    // stack is still not empty, count reversals
-    while (!st.empty()) {
-        char a = st.top(); st.pop();
-        char b = st.top(); st.pop();
-        if (a == b) {
-            ans += 1;
-        } else {
-            ans += 2;
-        }
-    }
+class Solution {
+public:
+    int countMinReversals(string s) {
+        // If the length of the string is odd, it's impossible to balance
+        if (s.size() & 1) return -1;
 
-    return ans;
-}
+        int balance = 0;    // Keeps track of unmatched '{' brackets
+        int reversals = 0;  // Counts the minimum reversals needed
+
+        // Traverse through each character in the string
+        for (char ch : s) {
+            if (ch == '{') {
+                // Opening bracket: increase the balance
+                balance++;
+            } else {
+                // Closing bracket: try to match it with a previous '{'
+                if (balance > 0) {
+                    // There is an unmatched '{' ? match it with this '}'
+                    balance--;
+                } else {
+                    // No unmatched '{' to match ? reverse this '}' to '{'
+                    reversals++;     // one reversal needed
+                    balance++;       // after reversal, we treat it as '{'
+                }
+            }
+        }
+
+        // After processing the string, there may still be unmatched '{'
+        // Every two unmatched '{' can be balanced with one reversal
+        int remainingReversals = balance / 2;
+
+        // Total reversals = reversals done during traversal + remaining needed
+        return reversals + remainingReversals;
+    }
+};
+

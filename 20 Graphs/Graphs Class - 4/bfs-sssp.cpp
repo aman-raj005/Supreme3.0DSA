@@ -1,3 +1,15 @@
+? **To find the shortest path between two nodes in an unweighted graph using BFS (Breadth-First Search).
+?? Given:
+A graph made up of nodes (0 to 5).
+
+Edges (connections between nodes), which can be undirected or directed. (In this case, they are all undirected.)
+
+A source node (src) and a destination node (dest).
+
+?? You are asked to find the shortest path from src to dest using BFS.
+
+
+
 #include<iostream>
 #include<list>
 #include<queue>

@@ -1,5 +1,5 @@
 // gfg: Topological sort 
-
+  // understand the topolgical sort from here      https://youtu.be/IhEhRVzptmQ?feature=shared
 // TC:O(V+E)
 // dfs
 class Solution{

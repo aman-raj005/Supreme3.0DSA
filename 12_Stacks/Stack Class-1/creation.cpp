@@ -7,7 +7,7 @@ class Stack{
         int size;
         int top;
         Stack(int capacity){
-            arr = new int[capacity];
+            arr = new int(capacity];
             size = capacity;
             top = -1;
         }

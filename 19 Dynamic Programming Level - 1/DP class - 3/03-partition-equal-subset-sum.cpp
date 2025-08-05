@@ -1,5 +1,61 @@
 // leetcode 416. Partition Equal Subset Sum
 
+ //  my code 
+ 
+ class Solution {
+public:
+    // Recursive function to check if a subset with given 'sum' exists from index 'index' onward
+    bool check(vector<int>& nums, int index, int sum, vector<vector<int>>& dp) {
+        // Base Case 1: If target sum is 0, subset is found
+        if (sum == 0) return true;
+
+        // Base Case 2: If sum becomes negative, not possible to form subset
+        if (sum < 0) return false;
+
+        // Base Case 3: If we reach the end of array and haven't found the subset
+        if (index >= nums.size()) return false;
+
+        // Memoization check: if already solved for this state
+        if (dp[sum][index] != -1) return dp[sum][index];
+
+        // Option 1: Include the current element and move to next
+        bool include = check(nums, index + 1, sum - nums[index], dp);
+
+        // Option 2: Exclude the current element and move to next
+        bool exclude = check(nums, index + 1, sum, dp);
+
+        // Store the result in dp and return
+        dp[sum][index] = include || exclude;
+        return dp[sum][index];
+    }
+
+    bool canPartition(vector<int>& nums) {
+        int sum = 0;
+
+        // Calculate total sum of the array
+        for (int i = 0; i < nums.size(); i++) {
+            sum += nums[i];
+        }
+
+        // If total sum is odd, it can't be partitioned into two equal subsets
+        if (sum % 2 != 0) return false;
+
+        // We only need to find a subset with sum equal to half
+        sum = sum / 2;
+
+        // Initialize DP table with -1 (uncomputed states)
+        vector<vector<int>> dp(sum + 1, vector<int>(nums.size() + 1, -1));
+
+        // Start recursive check from index 0 and target sum
+        return check(nums, 0, sum, dp);
+    }
+};
+
+
+
+
+
+//                 code by love babbar 
 class Solution {
 public:
     bool solve (vector<int>&nums, int target, int i){

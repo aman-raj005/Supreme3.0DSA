@@ -1,5 +1,43 @@
 // leetcode 300. Longest Increasing Subsequence
 
+ //  my code 
+ 
+ 
+ class Solution {
+public:
+    int find(vector<int>& nums, int index, int previousIndex, vector<vector<int>>& dp) {
+        if (index >= nums.size()) return 0;
+
+        if (dp[index][previousIndex + 1] != -1) {
+            return dp[index][previousIndex + 1];
+        }
+
+        int include = 0;
+        if (previousIndex == -1 || nums[index] > nums[previousIndex]) {
+            include = 1 + find(nums, index + 1, index, dp);
+        }
+
+        int exclude = find(nums, index + 1, previousIndex, dp);
+
+        return dp[index][previousIndex + 1] = max(include, exclude);
+    }
+
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        // Shifted dp: dp[index][previousIndex + 1]
+        vector<vector<int>> dp(n, vector<int>(n + 1, -1));
+        return find(nums, 0, -1, dp);
+    }
+};
+
+
+
+
+
+
+
+
+                 //     code by love babbar 
 class Solution {
 public:
     int solveRec(vector<int>&arr, int curr, int prev){

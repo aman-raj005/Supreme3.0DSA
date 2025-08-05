@@ -1,5 +1,33 @@
 // gfg: Painting the Fence
 
+
+ //  my code 
+ 
+ class Solution {
+public:
+    int total(int n, int k, vector<int>& dp) {
+        if (n == 1) {
+            return k;
+        }
+        if (n == 2) {
+            return k + k * (k - 1);
+        }
+        if (dp[n] != -1) {
+            return dp[n];
+        }
+        dp[n] = (k - 1) * (total(n - 2, k, dp) + total(n - 1, k, dp));
+        return dp[n];
+    }
+
+    int countWays(int n, int k) {
+        vector<int> dp(n + 1, -1);
+        return total(n, k, dp);
+    }
+};
+
+
+   //       code  by love babbar 
+
 class Solution{
     public:
     long long mod = 1000000007;

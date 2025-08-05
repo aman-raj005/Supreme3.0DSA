@@ -59,19 +59,19 @@ void postOrderTraversal(Node* root){
     cout << root->data << " ";
 }
 
-Node* createTree(){
-    cout << "Enter the value for node: "<< endl;
-    int val;
-    cin>>val;
-    Node* root = NULL;
-    while(val != -1){
-        root = buildBST(val, root);
-        cout << "Enter the value for node: "<< endl;
-        // int val;
-        cin>>val;
-    }
-    return root;
-}
+//Node* createTree(){
+//    cout << "Enter the value for node: "<< endl;
+//    int val;
+//    cin>>val;
+//    Node* root = NULL;
+//    while(val != -1){
+//        root = buildBST(val, root);
+//        cout << "Enter the value for node: "<< endl;
+//        // int val;
+//        cin>>val;
+//    }
+//    return root;
+//}
 
 void levelOrderTraversal(Node* root){
     queue<Node*> q;
@@ -100,7 +100,16 @@ void levelOrderTraversal(Node* root){
 
 int main(){
     // Node* root = NULL;
-    Node* root = createTree();
+//    Node* root = createTree();
+  //  directly enter the value 
+    Node* root = NULL;
+    vector<int> values = {10, 5, 15, 3, 7};
+
+    for(int val : values){
+        root = buildBST(val, root);
+    }
+
+//   entry ended
     cout<<"printing level order: "<<endl;
     levelOrderTraversal(root);
     cout<<"printing pre order: "<<endl;

@@ -1,6 +1,6 @@
 // leetcode 106. Construct Binary Tree from Inorder and Postorder Traversal
-
-/**
+                                //        understand only technique not yhr code  https://youtu.be/y6zSY_z7Kh4?feature=shared
+/**  
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;

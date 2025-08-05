@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
     stack<char>s;
-    string name = "saumya";
+    string name = "aman";
 
     // insertion of characters into the stack
     for(int i=0; i<name.length();i++){

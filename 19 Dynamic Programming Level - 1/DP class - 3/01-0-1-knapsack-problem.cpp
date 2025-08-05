@@ -1,5 +1,57 @@
 // gfg: 0-1 Knapsack Problem
 
+  // my code 
+  
+  class Solution {
+  public:
+    // Recursive function to find the maximum value we can achieve with remaining weight W,
+    // starting from the current item index. Uses memoization with 'dp' to avoid recomputation.
+    int maximized(int W, vector<int> &val, vector<int> &wt, int index, vector<vector<int>> &dp) {
+        // Base Case: If we've considered all items, no value can be added
+        if (index >= val.size()) {
+            return 0;
+        }
+
+        // If already computed for current weight and index, return stored value
+        if (dp[W][index] != -1) {
+            return dp[W][index];
+        }
+
+        int include = 0;
+
+        // If the current item's weight is less than or equal to remaining capacity,
+        // we can include it and move to the next item
+        if (wt[index] <= W) {
+            include = val[index] + maximized(W - wt[index], val, wt, index + 1, dp);
+        }
+
+        // Option to exclude the current item and move to the next item
+        int exclude = maximized(W, val, wt, index + 1, dp);
+
+        // Store the maximum of include and exclude in dp table
+        dp[W][index] = max(include, exclude);
+
+        return dp[W][index];
+    }
+
+    // Main function to be called for solving 0/1 Knapsack
+    int knapsack(int W, vector<int> &val, vector<int> &wt) {
+        int n = val.size();
+
+        // Create a 2D dp table initialized with -1
+        // Rows represent remaining weight capacity from 0 to W
+        // Columns represent item indices from 0 to n
+        vector<vector<int>> dp(W + 1, vector<int>(n + 1, -1));
+
+        // Start the recursive process from index 0
+        return maximized(W, val, wt, 0, dp);
+    }
+};
+
+
+
+
+                     // code by love babbar 
 class Solution {
   public:
     int solveUsingRecursion(vector<int>&val, vector<int>&wt, int capacity, int index){
