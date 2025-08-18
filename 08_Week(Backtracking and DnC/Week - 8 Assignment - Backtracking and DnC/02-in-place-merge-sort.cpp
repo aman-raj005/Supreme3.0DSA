@@ -3,16 +3,20 @@
 // in place merge sort using Gap Method
 class Solution {
 public:
-    void mergeInPlace(vector<int>&v, int start,int mid, int end){
+    void mergeInPlace(vector<int>&v, int start,int mid, int end)
+	{
         int total_len = end - start +1;
         int gap = total_len / 2 + total_len % 2; //ceil
-        while(gap > 0){
+        while(gap > 0)
+		{
             int i = start, j = start + gap;
-            while(j<=end){
-                if(v[i]>v[j]){
+            while(j<=end)
+			{
+                if(v[i]>v[j])
+				 {
                     swap(v[i],v[j]);
-                }
-                i++,j++;
+                 }
+               i++,j++;
             }
             gap = gap <= 1 ? 0 : (gap/2) + (gap % 2);
         }
@@ -36,7 +40,8 @@ public:
 
 
 
-// merge sort using temp array : SC:O(N)
+// merge sort using temp array : SC:O(N)  but using extra space as temp  
+//also se this code because it is just merging two sorted arrays rest two codes are  same
 class Solution {
 public:
     void merge(vector<int>&v, vector<int>&temp, int start,int mid, int end){

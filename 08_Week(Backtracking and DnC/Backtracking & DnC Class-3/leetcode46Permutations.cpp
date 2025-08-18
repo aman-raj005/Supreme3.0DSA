@@ -28,27 +28,42 @@
 //All the integers of nums are unique.
 
 
-         // my code 
-         class Solution {
+#include <vector>
+using namespace std;
+
+class Solution {
 public:
-    void  permutation(vector<int>&nums,vector<vector<int>>&ans,int i,int j)
-      {
-        //base case
-        if(j>=nums.size()){ans.push_back(nums);return;}
-        //aik...
-        for(int i=j;i<nums.size();i++)
-          {
-              swap(nums[i],nums[j]);
-              permutation(nums,ans, i, j+1);
-              swap(nums[i],nums[j]);
-          }
-      }
+    // Helper function to generate permutations
+    // nums     -> current list of numbers
+    // ans      -> stores all generated permutations
+    // row      -> loop variable for swapping (used inside the for-loop)
+    // col      -> current fixed position for placing an element
+    void permutation(vector<int>& nums, vector<vector<int>>& ans, int row, int col)
+	{
+        // Base case: If 'col' has reached the end, we have a complete permutation
+        if (col >= nums.size())
+		 {
+            ans.push_back(nums); // Store the current arrangement
+            return;
+         }
+
+        // Try placing every remaining element at position 'col'
+        for (row = col; row < nums.size(); row++) 
+		 {
+            swap(nums[row], nums[col]); // Place element at 'row' into the 'col' position
+            permutation(nums, ans, row, col + 1); // Recurse for the next column
+            swap(nums[row], nums[col]); // Backtrack to restore original order
+         }
+    }
+
+    // Main function to be called by the user
     vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>>ans;
-        permutation(nums,ans,0,0);
+        vector<vector<int>> ans; // Stores all permutations
+        permutation(nums, ans, 0, 0); // Start from the first column
         return ans;
     }
 };
+
 
 
 //                                        code by love babbar

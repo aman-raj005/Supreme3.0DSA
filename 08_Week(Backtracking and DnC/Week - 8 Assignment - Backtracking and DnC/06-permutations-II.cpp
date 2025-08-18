@@ -27,7 +27,7 @@ Constraints:
 
 
 
-// my code 
+// my code   // lakchya code is better than my code
 class Solution {
 public:
        void permutation(vector<int>&nums,vector<vector<int>>&ans,int start)
@@ -71,17 +71,21 @@ public:
 
 class Solution {
 public:
-    void permuteUniqueHelper(vector<int>&nums, vector<vector<int>>&ans, int start){
+    void permuteUniqueHelper(vector<int>&nums, vector<vector<int>>&ans, int start)
+	{
         // base case
-        if(start == nums.size()){
+        if(start == nums.size())
+		 {
             ans.push_back(nums);
             return;
-        }
+         }
         unordered_map<int,bool>visited;
-        for(int i = start; i < nums.size() ; i++){
-            if(visited.find(nums[i]) != visited.end()){
+        for(int i = start; i < nums.size() ; i++)
+		{
+            if(visited.find(nums[i]) != visited.end())
+			 {
                 continue;
-            }
+             }
             visited[nums[i]] = true;
             swap(nums[i], nums[start]);
             permuteUniqueHelper(nums,ans,start+1);

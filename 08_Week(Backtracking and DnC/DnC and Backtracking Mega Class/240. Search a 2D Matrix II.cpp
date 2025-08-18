@@ -33,6 +33,61 @@ All the integers in each column are sorted in ascending order.
 
 //                              my code 
 
+#include <vector>
+using namespace std;
+
+class Solution {
+    // Function to perform binary search in a specific row
+    bool binarySearchInRow(int rowIndex, vector<vector<int>>& matrix, int target) {
+        int start = 0;
+        int end = matrix[rowIndex].size() - 1;
+
+        while (start <= end)
+		 {
+            int mid = (left + end) / 2;
+
+            if (matrix[rowIndex][mid] == target) {
+                return true; // Target found
+            }
+            else if (matrix[rowIndex][mid] < target) {
+                start = mid + 1; // Search in right half
+            }
+            else {
+                end = mid - 1; // Search in left half
+            }
+        }
+
+        return false; // Target not found in this row
+    }
+
+    // Recursive function to check each row
+    bool searchRowByRow(vector<vector<int>>& matrix, int target, int rowIndex) {
+        // Base case: No more rows to search
+        if (rowIndex >= matrix.size()) {
+            return false;
+        }
+
+        // Search the current row
+        if (binarySearchInRow(rowIndex, matrix, target)) {
+            return true; // Found in current row
+        }
+
+        // Search in the next row
+        return searchRowByRow(matrix, target, rowIndex + 1);
+    }
+
+public:
+    // Main function
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        return searchRowByRow(matrix, target, 0);
+    }
+};
+
+
+
+
+
+
 class Solution {
     bool binerarysearch(int row,vector<vector<int>>& matrix,int target,int start,int end)
      {

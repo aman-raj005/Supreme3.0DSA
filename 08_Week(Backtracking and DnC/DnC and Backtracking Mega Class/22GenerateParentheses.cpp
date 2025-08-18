@@ -1,3 +1,5 @@
+/*
+
 22. Generate Parentheses
 Solved
 Medium
@@ -20,6 +22,8 @@ Output: ["()"]
 Constraints:
 
 1 <= n <= 8
+
+*/
 
 //code by mee
 class Solution {
@@ -45,8 +49,9 @@ public:
 vector<string> generateParenthesis(int n) {
     vector<string> ans;
     string output="";
-    int j=0;
-    find(n,0,0,ans,output);
+    int openB=0;
+    int closeB=0;
+    find(n,openB,closeB,ans,output);
     return ans;
     }
 };

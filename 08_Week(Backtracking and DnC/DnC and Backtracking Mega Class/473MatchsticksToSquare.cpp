@@ -63,7 +63,8 @@ public:
         int eachsiseIdealLen=total/4;
         //compare karne ke liye vector banan parega
         vector<int>sides(4,eachsiseIdealLen);
-        return check(matchsticks,sides,0);
+        int index=0;
+        return check(matchsticks,sides,index);
     }
 };
 

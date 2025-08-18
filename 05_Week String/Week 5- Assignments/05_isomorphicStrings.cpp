@@ -1,0 +1,122 @@
+//205. Isomorphic Strings
+//Solved
+//Easy
+//Topics
+//Companies
+//Given two strings s and t, determine if they are isomorphic.
+//
+//Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+//
+//All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
+//
+// 
+//
+//Example 1:
+//
+//Input: s = "egg", t = "add"
+//
+//Output: true
+//
+//Explanation:
+//
+//The strings s and t can be made identical by:
+//
+//Mapping 'e' to 'a'.
+//Mapping 'g' to 'd'.
+//Example 2:
+//
+//Input: s = "foo", t = "bar"
+//
+//Output: false
+//
+//Explanation:
+//
+//The strings s and t can not be made identical as 'o' needs to be mapped to both 'a' and 'r'.
+//
+//Example 3:
+//
+//Input: s = "paper", t = "title"
+//
+//Output: true
+//
+// 
+//
+//Constraints:
+//
+//1 <= s.length <= 5 * 104
+//t.length == s.length
+//s and t consist of any valid ascii character.
+
+
+// my code 
+
+class Solution {
+public:
+    string getPattern(string s) {
+        unordered_map<char, int> mp;
+        string pattern = "";
+        int id = 0;
+
+        for (char c : s) {
+            if (mp.find(c) == mp.end()) {
+                mp[c] = id;
+                id++;
+            }
+            pattern += to_string(mp[c]) + " ";
+        }
+
+        return pattern;
+    }
+
+    bool isIsomorphic(string s, string t) {
+        return getPattern(s) == getPattern(t);
+    }
+};
+
+
+
+
+
+
+
+  // my code 
+  class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+       char  hatch[256]={0};
+       bool mapped_char[256]={false};
+       for(int i=0;i<s.length();i++){
+        if(hatch[s[i]]==0 && mapped_char[t[i]]==false)
+          {
+           hatch[s[i]]=t[i];
+           mapped_char[t[i]]=true;
+          }
+       }
+        for(int i=0;i<t.length();i++){
+        if( hatch[s[i]] !=t[i])
+          {
+           return false;
+          }
+       }
+       return true;
+    }
+};
+                     // code by lakchya
+//leetcode 205: Isomorphic Strings
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        int hash[256] = {0}; //mapping of each char of language 's' to language 't'
+        bool istCharsMapped[256] = {0}; //stores if t[i] char already mapped with s[i]
+        for(int i=0; i<s.size();i++){
+            if(hash[s[i]]==0 && istCharsMapped[t[i]]==0){
+                hash[s[i]]=t[i];
+                istCharsMapped[t[i]]=true;
+            }
+        }
+        for(int i=0;i<s.size();i++){
+            if(char(hash[s[i]]) != t[i]) return false;
+        }
+        return true;
+    }
+};

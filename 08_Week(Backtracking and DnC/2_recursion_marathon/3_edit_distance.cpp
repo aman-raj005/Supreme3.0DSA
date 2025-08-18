@@ -62,9 +62,17 @@ private:
 public:
     // Function to calculate the minimum edit distance
     int minDistance(string word1, string word2) {
-        return noperation(word1, 0, word2, 0);
+    	int index1=0;
+    	int index2=0;
+        return noperation(word1, index1, word2, index2);
     }
 };
+
+
+
+
+
+
 
 // Test case
 int main() {

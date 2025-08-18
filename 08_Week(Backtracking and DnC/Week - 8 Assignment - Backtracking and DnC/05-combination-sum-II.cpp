@@ -37,6 +37,49 @@ Constraints:
 1 <= candidates[i] <= 50
 1 <= target <= 30
 
+// my first code 
+
+
+class Solution {
+public:
+    void backtrack(int index, vector<int>& candidates, int target,
+                   vector<int>& current, vector<vector<int>>& result) {
+        // Base case: target achieved
+        if (target == 0) {
+            result.push_back(current);
+            return;
+        }
+        // Base case: end of array or target negative
+        if (index >= candidates.size() || target < 0) {
+            return;
+        }
+
+        // INCLUDE current candidate
+        current.push_back(candidates[index]);
+        backtrack(index + 1, candidates, target - candidates[index], current, result);
+        current.pop_back();
+
+        // EXCLUDE current candidate and skip duplicates
+        int nextIndex = index + 1;
+        while (nextIndex < candidates.size() && candidates[nextIndex] == candidates[index]) {
+            nextIndex++;
+        }
+        backtrack(nextIndex, candidates, target, current, result);
+    }
+
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        sort(candidates.begin(), candidates.end()); // sort to group duplicates
+        vector<vector<int>> result;
+        vector<int> current;
+        backtrack(0, candidates, target, current, result);
+        return result;
+    }
+};
+
+
+
+
+
 //     my   code
 class Solution {
 public:

@@ -48,7 +48,8 @@ public:
     vector<vector<int>> combine(int n, int k) {
         vector<vector<int>> ans;
         vector<int> output;
-        totalC(ans, 1, n, k, output);
+        int start=1;
+        totalC(ans, start, n, k, output);
         return ans;
     }
 };

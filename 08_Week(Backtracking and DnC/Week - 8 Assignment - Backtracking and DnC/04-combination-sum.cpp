@@ -1,4 +1,6 @@
-39. Combination Sum
+   
+/*   
+   39. Combination Sum
 Solved
 Medium
 Topics
@@ -35,6 +37,45 @@ Constraints:
 2 <= candidates[i] <= 40
 All elements of candidates are distinct.
 1 <= target <= 40
+
+
+*/
+// my first code 
+
+class Solution {
+public:
+    void backtrack(int index, vector<int>& candidates, int target,
+                   vector<int>& current, vector<vector<int>>& result) {
+        // Base case: target achieved
+        if (target == 0) {
+            result.push_back(current);
+            return;
+        }
+        // Base case: no candidates left or target negative
+        if (index >= candidates.size() || target < 0) {
+            return;
+        }
+
+        // INCLUDE current candidate
+        current.push_back(candidates[index]);
+        backtrack(index, candidates, target - candidates[index], current, result);
+        current.pop_back(); // backtrack
+
+        // EXCLUDE current candidate
+        backtrack(index + 1, candidates, target, current, result);
+    }
+
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> result;
+        vector<int> current;
+        int index=0;
+        backtrack(index, candidates, target, current, result);
+        return result;
+    }
+};
+
+
+
 
 
 // my code 

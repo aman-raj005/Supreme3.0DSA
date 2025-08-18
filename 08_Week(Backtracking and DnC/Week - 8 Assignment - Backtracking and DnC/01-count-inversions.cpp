@@ -13,6 +13,24 @@ Output: 3
 Explanation:
 Inversions are: (2,1), (4,1), (4,3)
 
+
+ // brute force approach n squre
+ long countInversions(vector<int> arr) {
+    int count = 0;
+    for (int i = 0; i < arr.size(); i++) {
+        for (int j = i + 1; j < arr.size(); j++) {
+            count = arr[i] > arr[j] ? count + 1 : count;
+        }
+    }
+    return count;
+}
+
+
+
+
+
+
+
                      //  my code 
 #include<iostream>
 using namespace std;
@@ -39,7 +57,8 @@ int main() {
     int arr[5] = {2, 4, 1, 3, 5};
     int size = 5;
     int count = 0;
-    find(arr, size, count, 0);
+    int index=0;
+    find(arr, size, count, index);
     cout << "output is " << count;
 
     return 0;

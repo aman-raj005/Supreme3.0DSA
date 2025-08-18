@@ -6,7 +6,8 @@ void mergerboth(int arr1[], int size1, int arr2[], int size2, vector<int>& merge
     int i = 0, j = 0;
 
     // Merge both arrays in sorted order
-    while (i < size1 && j < size2) {
+    while (i < size1 && j < size2) 
+	{
         if (arr1[i] < arr2[j]) { // Corrected condition
             mergedarray.push_back(arr1[i]);
             i++;
@@ -17,13 +18,15 @@ void mergerboth(int arr1[], int size1, int arr2[], int size2, vector<int>& merge
     }
 
     // Copy remaining elements of arr1
-    while (i < size1) {
+    while (i < size1) 
+	{
         mergedarray.push_back(arr1[i]);
         i++;
     }
 
     // Copy remaining elements of arr2
-    while (j < size2) {
+    while (j < size2) 
+	{
         mergedarray.push_back(arr2[j]);
         j++;
     }
